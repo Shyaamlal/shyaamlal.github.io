@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simplified operating-model guides | Shyaamlal Nandalal</title>
+  <meta name="description" content="Three examples to adapt when using agents to build a regression test suite:" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="guides.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <p class="brand-name"><a href="../index.html" class="brand-home">Shyaamlal Nandalal</a></p>
+        <p class="brand-role">Builder of agent workflows, with a QA background</p>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Guides</a>
+        <a href="https://github.com/Shyaamlal" class="nav-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/shyaamlal-n-n/" class="nav-link">LinkedIn</a>
+        <a href="https://agenticqa.substack.com" class="nav-link">Substack</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="guide">
+    <article class="doc container">
+<table class="doc-control"><tr><th scope="row">File</th><td><code>README.md</code></td></tr><tr><th scope="row">For your agent</th><td><span class="agent-url"><code>https://shyaamlal.github.io/agentic-qa/README.md</code><button class="copy-link" type="button" data-copy="https://shyaamlal.github.io/agentic-qa/README.md">Copy link</button></span></td></tr><tr><th scope="row">Download</th><td><a href="README.md">This file (Markdown)</a> or <a href="agentic-qa-guides.zip">all three guides (.zip)</a></td></tr></table>
+<div class="doc-text"><h1>Simplified operating-model guides</h1>
+<p>Three examples to adapt when using agents to build a regression test suite:</p>
+<table class="toc"><tr><td class="toc-num">1</td><td><a class="toc-title" href="01-delivery-workflow.html">Delivery workflow</a><span class="toc-desc">one task from selection through review, approved delivery and recorded acceptance.</span></td><td class="toc-md"><a href="01-delivery-workflow.md">Markdown</a></td></tr><tr><td class="toc-num">2</td><td><a class="toc-title" href="02-test-design-and-evidence.html">Test design and evidence</a><span class="toc-desc">what the test should check, how it handles failure and what evidence to review.</span></td><td class="toc-md"><a href="02-test-design-and-evidence.md">Markdown</a></td></tr><tr><td class="toc-num">3</td><td><a class="toc-title" href="03-agent-roles-and-context.html">Agent roles and context</a><span class="toc-desc">coordinator and implementation responsibilities, source loading and reusable learning.</span></td><td class="toc-md"><a href="03-agent-roles-and-context.md">Markdown</a></td></tr></table>
+<p>These guides accompany <strong>Simplifying the agents behind my regression suite</strong>, part of the Agentic QA series. They are simplified examples, not a copy of an installed configuration. The operating model uses shared delivery instructions, testing instructions and two separate agent profiles, plus supporting records. The third guide groups both roles for readability.</p>
+<h2>Before adapting them</h2>
+<p>Provide your own task template, agent definitions, tool permissions, runner and authentication setup, test data, cleanup implementation, reporting and verification commands. Specify the environments and actions the agents may use. Apply testing instructions to the intended files through your tool's supported configuration.</p>
+<p>The example command <code>npm run verify</code> is project-defined. It must invoke real checks; it is not a standard Playwright command. In the described workflow, local verification covers code and selected documentation consistency checks. No scripts, hooks or reporting framework are included in these guides.</p>
+<p>The five-run criterion applies to live business acceptance: five passing staging runs with retries disabled, followed by human evidence review. If required staging data is unavailable, code may be merged after the agreed checks and approvals while business acceptance remains pending.</p>
+<p class="aside">This is one workflow's acceptance criterion, not a universal quality standard. Passing runs do not establish complete coverage or maintainability. Written approval rules depend on agent compliance unless permissions or repository protections enforce them. These guides do not install a CI merge gate.</p>
+<h2>Records the workflow uses</h2>
+<ul>
+<li><strong>Task issue and pull request:</strong> scope, decisions, current work and unresolved acceptance.</li>
+<li><strong>Learning Handoff:</strong> the task-specific account of what changed, what was checked and what remains open.</li>
+<li><strong>Agent learning files:</strong> short, reviewed lessons useful to later tasks.</li>
+<li><strong>UI map:</strong> confirmed page controls, relevant states and reusable interaction knowledge.</li>
+<li><strong>Test catalog:</strong> scenario steps and expected results, linked to the corresponding tests.</li>
+<li><strong>Runner guidance:</strong> approved commands, required data and known limitations.</li>
+</ul></div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="copyright">© 2026 Shyaamlal Nandalal</p>
+    </div>
+  </footer>
+<script>
+document.querySelectorAll('.copy-link').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.getAttribute('data-copy');
+    function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy link'; }, 1600); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(b.previousElementSibling); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>

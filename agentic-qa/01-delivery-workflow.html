@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delivery workflow | Shyaamlal Nandalal</title>
+  <meta name="description" content="You can use these steps as instructions in your own AI harness." />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="guides.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <p class="brand-name"><a href="../index.html" class="brand-home">Shyaamlal Nandalal</a></p>
+        <p class="brand-role">Builder of agent workflows, with a QA background</p>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Guides</a>
+        <a href="https://github.com/Shyaamlal" class="nav-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/shyaamlal-n-n/" class="nav-link">LinkedIn</a>
+        <a href="https://agenticqa.substack.com" class="nav-link">Substack</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="guide">
+    <article class="doc container">
+<table class="doc-control"><tr><th scope="row">File</th><td><code>01-delivery-workflow.md</code></td></tr><tr><th scope="row">For your agent</th><td><span class="agent-url"><code>https://shyaamlal.github.io/agentic-qa/01-delivery-workflow.md</code><button class="copy-link" type="button" data-copy="https://shyaamlal.github.io/agentic-qa/01-delivery-workflow.md">Copy link</button></span></td></tr><tr><th scope="row">Download</th><td><a href="01-delivery-workflow.md">This file (Markdown)</a> or <a href="agentic-qa-guides.zip">all three guides (.zip)</a></td></tr><tr><th scope="row">Set</th><td><a href="index.html">Simplified operating-model guides</a></td></tr></table>
+<div class="doc-text"><h1>Delivery workflow</h1>
+<p>You can use these steps as instructions in your own AI harness.</p>
+<p>Use alongside <a href="02-test-design-and-evidence.html">test design and evidence</a> and <a href="03-agent-roles-and-context.html">agent roles and context</a>. These describe the example workflow; adapt its commands, records and approval boundaries before use.</p>
+<h2>1. Select and define the task</h2>
+<ul>
+<li>The coordinator checks live issues, pull requests and existing implementation sessions before proposing work.</li>
+<li>The human chooses the task and model. Start one implementation session with a clear scope, its own working copy and branch, and links to the current task records.</li>
+<li>The implementation agent checks relevant existing tests, helpers and UI knowledge before exploring the application again.</li>
+<li>Agree starting data, expected business behaviour, allowed changes, cleanup, evidence and stop conditions. Record observed facts, human decisions, assumptions and unresolved questions distinctly.</li>
+<li>Obtain approval before live exploration/authentication, creating a new task issue and editing the agreed files.</li>
+</ul>
+<h2>2. Implement in the same session</h2>
+<ul>
+<li>Explore, clarify, design, implement and make task-related corrections in the same implementation session. Ask routine business questions directly of the human.</li>
+<li>Work in explainable checkpoints. If new evidence changes the task, return to the relevant earlier step and obtain any changed approval.</li>
+<li>Send unrelated defects or new scenarios back to the coordinator for separate tasks; do not silently expand scope.</li>
+<li>The human may shorten the teaching walkthrough for familiar patterns or small maintenance tasks. Required checks, review and approval boundaries remain.</li>
+</ul>
+<h2>3. Run and review</h2>
+<ul>
+<li>Run the configured offline verification and record what actually ran. Review the test's business summary, steps and expected results against assertions and execution evidence.</li>
+<li>Obtain approval before staging execution or persistent shared-data changes. Establish owned data and cleanup first; stop when ownership or the starting state is unclear.</li>
+<li>The implementation agent runs the approved staging tests when the required data is available. For live business acceptance in this example, require five passing staging runs with retries disabled, followed by human evidence review and confirmation. This is the business acceptance criterion, not an unconditional prerequisite to merge.</li>
+<li>Update the relevant UI map, test catalog and reusable lessons with the code change. Prepare the Learning Handoff.</li>
+</ul>
+<h2>4. Deliver and reconcile</h2>
+<ul>
+<li>Obtain separate human approvals to create the pull request and to merge it. Approval for one does not authorise the other.</li>
+<li>The coordinator checks the actual pull-request state, evidence and human decisions before recording completion.</li>
+<li>If required staging data is unavailable, code may be merged after the agreed checks and approvals while business acceptance remains pending. Record the missing data or run and the remaining five-run acceptance obligation in the task record. Do not equate merge with business acceptance.</li>
+</ul>
+<h2>Learning Handoff</h2>
+<p>Record the task and code changes; approved scope; commands, environment and test selection; run results and cleanup; evidence locations; decisions and reusable lessons; and any unresolved acceptance or follow-up work. Link it from the task issue and pull request so a later session can recover the work.</p>
+<p class="aside">Never infer an approval from tool access, an issue's existence or silence. These are written workflow rules, not installed technical permission controls.</p></div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="copyright">© 2026 Shyaamlal Nandalal</p>
+    </div>
+  </footer>
+<script>
+document.querySelectorAll('.copy-link').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.getAttribute('data-copy');
+    function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy link'; }, 1600); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(b.previousElementSibling); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>

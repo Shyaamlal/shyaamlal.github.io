@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agent roles and context | Shyaamlal Nandalal</title>
+  <meta name="description" content="Use with the delivery workflow. The two roles below belong in separate agent definition files in an installed setup; they are grouped here as a simplified reference." />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="guides.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <p class="brand-name"><a href="../index.html" class="brand-home">Shyaamlal Nandalal</a></p>
+        <p class="brand-role">Builder of agent workflows, with a QA background</p>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Guides</a>
+        <a href="https://github.com/Shyaamlal" class="nav-link">GitHub</a>
+        <a href="https://www.linkedin.com/in/shyaamlal-n-n/" class="nav-link">LinkedIn</a>
+        <a href="https://agenticqa.substack.com" class="nav-link">Substack</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="guide">
+    <article class="doc container">
+<table class="doc-control"><tr><th scope="row">File</th><td><code>03-agent-roles-and-context.md</code></td></tr><tr><th scope="row">For your agent</th><td><span class="agent-url"><code>https://shyaamlal.github.io/agentic-qa/03-agent-roles-and-context.md</code><button class="copy-link" type="button" data-copy="https://shyaamlal.github.io/agentic-qa/03-agent-roles-and-context.md">Copy link</button></span></td></tr><tr><th scope="row">Download</th><td><a href="03-agent-roles-and-context.md">This file (Markdown)</a> or <a href="agentic-qa-guides.zip">all three guides (.zip)</a></td></tr><tr><th scope="row">Set</th><td><a href="index.html">Simplified operating-model guides</a></td></tr></table>
+<div class="doc-text"><h1>Agent roles and context</h1>
+<p>Use with the <a href="01-delivery-workflow.html">delivery workflow</a>. The two roles below belong in separate agent definition files in an installed setup; they are grouped here as a simplified reference.</p>
+<h2>Coordinator</h2>
+<ul>
+<li>Organise priorities and recommend ready work from live task records. Check existing implementation sessions against open issues and pull requests before starting another session for the same task.</li>
+<li>Read the shared delivery rules, coordinator profile and short coordinator learning file. Use the roadmap for the overall goal and source links, then inspect current task and pull-request state.</li>
+<li>Agree the task and model with the human. Start one implementation session for the task with a clear scope, branch, references, approvals and stop conditions.</li>
+<li>Let routine business questions and corrections stay in the implementation session. Do not turn every exchange into a coordinator handoff.</li>
+<li>Coordinate separate tasks for unrelated findings. Reconcile code delivery, evidence and human acceptance decisions before closing out work.</li>
+<li>Do not write test/application code, approve your own work or treat a merged pull request as proof of live acceptance.</li>
+</ul>
+<h2>Implementation agent</h2>
+<ul>
+<li>Stay with the assigned task through exploration, clarification, implementation, verification, review corrections and the Learning Handoff.</li>
+<li>Read the shared delivery rules, implementation profile, assigned task, relevant testing instructions and short implementation learning file.</li>
+<li>Consult existing tests, helpers, the UI map, test catalog and runner guidance as needed. Avoid loading the whole roadmap and retired project history by default.</li>
+<li>Work in the task's isolated working copy and branch. Ask the human directly when requirements, data ownership, file scope or approvals are unclear.</li>
+<li>Run offline checks and, after approval, live staging tests. Present evidence for human review rather than making the acceptance decision yourself.</li>
+<li>Propose a few reusable lessons in the same pull request as the task. Keep the task-specific handoff separately traceable.</li>
+</ul>
+<h2>Keep three kinds of information distinct</h2>
+<ul>
+<li><strong>Current state:</strong> live GitHub issues and pull requests hold agreed scope, progress, decisions and pending acceptance.</li>
+<li><strong>Reusable instructions:</strong> shared delivery rules, testing rules and agent profiles describe how work should proceed.</li>
+<li><strong>Reusable knowledge:</strong> short role-learning files, confirmed UI-map entries and test catalog updates carry useful information forward. Review updates with the changes that produced them.</li>
+</ul>
+<p class="aside">The master issue holds the roadmap goal and links. Personal notes or briefings may help orientation, but current work state must be checked against live records. Removing background context does not remove the need to manage a growing task conversation.</p>
+<h2>Learning and concurrency</h2>
+<ul>
+<li>Explain unfamiliar concepts when the human is learning. The human chooses a shorter teaching walkthrough for familiar patterns; checks and approval boundaries remain.</li>
+<li>Keep only one workstream changing shared staging data at a time. Separate offline or read-only work may proceed in parallel only when file scopes and shared-data dependencies do not conflict and the required approval is in place.</li>
+<li>Role boundaries and approval instructions depend on agent compliance unless permissions enforce them. A review checkbox or saved instruction is not a technical merge gate.</li>
+</ul></div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="copyright">© 2026 Shyaamlal Nandalal</p>
+    </div>
+  </footer>
+<script>
+document.querySelectorAll('.copy-link').forEach(function (b) {
+  b.addEventListener('click', function () {
+    var t = b.getAttribute('data-copy');
+    function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy link'; }, 1600); }
+    function fallback() { var r = document.createRange(); r.selectNodeContents(b.previousElementSibling); var s = getSelection(); s.removeAllRanges(); s.addRange(r); }
+    try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
+  });
+});
+</script>
+</body>
+</html>
