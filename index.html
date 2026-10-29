@@ -38,20 +38,14 @@
       </div>
     </section>
 
-    <section id="what-i-help-with" class="themes-about">
-      <div class="container">
-        <h3 class="section-title">What I'm exploring</h3>
-        <ul class="theme-list">
-          <li>Splitting work across specialist agents with a coordinator, and finding where a human needs to step in.</li>
-          <li>Deciding what context each agent sees. That is most of the work, and it is where grounding and privacy are handled.</li>
-          <li>Measuring what agent workflows cost and save, in hours and in money.</li>
-        </ul>
-      </div>
-    </section>
-
     <section id="explorations" class="explorations">
       <div class="container">
-        <h3 class="section-title">Selected explorations</h3>
+        <div class="tabs" role="tablist" aria-label="Work">
+          <button class="tab section-title" type="button" role="tab" id="tab-explorations" aria-controls="panel-explorations" aria-selected="true">Selected explorations</button>
+          <button class="tab section-title" type="button" role="tab" id="tab-writing" aria-controls="writing" aria-selected="false" tabindex="-1">Writing</button>
+        </div>
+
+        <div class="tab-panel" id="panel-explorations" role="tabpanel" aria-labelledby="tab-explorations">
         <p class="section-lede">Open-source projects and frameworks I've built.</p>
 
         <div class="explorations-grid">
@@ -159,17 +153,16 @@
           </article>
 
         </div>
-      </div>
-    </section>
+        </div>
 
-    <section id="writing" class="themes-about">
-      <div class="container">
-        <h3 class="section-title">Writing</h3>
-        <p class="section-lede">I write about building with agents at work on <a href="https://agenticqa.substack.com">Substack</a>.</p>
-        <ul class="theme-list">
-          <li><a href="https://agenticqa.substack.com/p/how-i-orchestrate-agents-to-build">How I Orchestrate Agents to Build a Regression Test Suite</a></li>
-          <li><a href="agentic-qa/">Simplified operating-model guides</a>: three instruction files for agents that build a regression suite, to adapt in your own AI harness.</li>
-        </ul>
+        <div class="tab-panel" id="writing" role="tabpanel" aria-labelledby="tab-writing">
+          <p class="section-lede">I write about building with agents at work on <a href="https://agenticqa.substack.com">Substack</a>.</p>
+          <ul class="theme-list">
+            <li><a href="https://agenticqa.substack.com/p/simplifying-the-agents-behind-my">Simplifying the agents behind my regression suite</a></li>
+            <li><a href="agentic-qa/">Simplified operating-model guides</a>: three instruction files for agents that build a regression suite, to adapt in your own AI harness.</li>
+            <li><a href="https://agenticqa.substack.com/p/how-i-orchestrate-agents-to-build">How I Orchestrate Agents to Build a Regression Test Suite</a></li>
+          </ul>
+        </div>
       </div>
     </section>
 
@@ -195,6 +188,32 @@
       <p class="copyright">© 2026 Shyaamlal Nandalal</p>
     </div>
   </footer>
+
+  <script>
+  // Tabs for Selected explorations / Writing. Without JS both panels simply show, one after the other.
+  (function () {
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tabs [role="tab"]'));
+    function select(tab, focus) {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', on);
+        t.tabIndex = on ? 0 : -1;
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+      if (focus) tab.focus();
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener('click', function () { select(t); });
+      t.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+          select(tabs[(i + (e.key === 'ArrowRight' ? 1 : tabs.length - 1)) % tabs.length], true);
+          e.preventDefault();
+        }
+      });
+    });
+    select(location.hash === '#writing' ? tabs[1] : tabs[0]);
+  })();
+  </script>
 
 </body>
 </html>

@@ -332,6 +332,29 @@ a:hover { opacity: 0.7; }
   font-size: 14px;
 }
 
+/* Tabs: Selected explorations / Writing share one section */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 28px;
+  margin: 0 0 14px;
+  border-bottom: 1px solid var(--border);
+}
+.tab {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin: 0 0 -1px;
+  padding: 0 0 10px;
+  color: var(--text-soft);
+  cursor: pointer;
+}
+.tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
+.tab:hover { color: var(--text); }
+.tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.tab-panel[hidden] { display: none; }
+#writing .theme-list li { font-size: 16px; }
+
 /* ========== THEMES + ABOUT ========== */
 .themes-about {
   padding: 64px 0;
@@ -404,6 +427,7 @@ a:hover { opacity: 0.7; }
   .explorations-grid { grid-template-columns: 1fr; }
   .themes-about-inner { grid-template-columns: 1fr; gap: 40px; }
   .container { padding: 0 20px; }
+  .tab.section-title { font-size: 22px; }
 }
 
 @media (max-width: 480px) {
